@@ -1,0 +1,9 @@
+<h1><%= question.question %></h1>
+<h4> - <%= question.option1 %></h3>
+<h4> - <%= question.option2 %></h3>
+<a href="/questions/<%= question._id %>/edit">Edit</a>
+
+<form method="post" action="/questions/<%= question.id %>">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+</form>

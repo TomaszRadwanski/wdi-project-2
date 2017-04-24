@@ -1,0 +1,16 @@
+<h1>Edit</h1>
+
+<form method="post" action="/questions/<%= question._id %>">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="question">Question:</label>
+  <input type="text" id="question" name="question" value="<%= question.question%>">
+<br>
+  <label for="option1">Option 1:</label>
+  <input type="text" id="option1" name="option1" value="<%= question.option1%>">
+<br>
+  <label for="option2">Option 2:</label>
+  <input type="text" id="option2" name="option2" value="<%= question.option2%>">
+<br>
+  <input type="submit" value="Update">
+</form>

@@ -12,7 +12,21 @@
   <script src="/js/client.js" charset="utf-8"></script>
 </head>
 <body>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/questions">Questions</a></li>
+    <li><a href="/questions/new">Create a question</a></li>
+  </ul>
+  <% if (locals.isLoggedIn) { %>
+      <a class="nav-link" href="/logout">Logout</a>
+  <% } else { %>
+      <a class="nav-link" href="/login">Log In</a>
+      <a class="nav-link" href="/register">Register</a>
+  <% } %>
   <main>
+    <% for (const type in messages) { %>
+      <p><%= messages[type] %></p>
+    <% } %>
     <%- body %>
   </main>
 </body>

@@ -1,0 +1,9 @@
+<h1>Questions</h1>
+<ul>
+  <% questions.forEach(question => { %>
+    <li><a href="/questions/<%= question._id %>"><%= question.question %></a></li>
+    <li><%= question.option1 %></li>
+    <li><%= question.option2 %></li>
+    <br>
+  <% }); %>
+</ul>
