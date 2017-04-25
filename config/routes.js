@@ -29,6 +29,10 @@ router.route('/questions/:id')
   .delete(questions.delete);
 router.route('/questions/:id/edit')
   .get(questions.edit);
+router.route('/questions/:id/option2')
+  .post(questions.option2);
+router.route('/questions/:id/option1')
+  .post(questions.option1);
 
 router.route('/register')
   .get(registrations.new)

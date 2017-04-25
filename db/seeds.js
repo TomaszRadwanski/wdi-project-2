@@ -17,10 +17,10 @@ Question.collection.drop();
 User
   .create([
     {
-      username: 'mgscott ',
-      email: 'mgscott@mgscott.com',
-      password: 'mgscott',
-      passwordConfirmation: 'mgscott'
+      username: 'tom',
+      email: 'tom@tom.com',
+      password: 'tom',
+      passwordConfirmation: 'tom'
     }
   ])
   .then(users => {

@@ -1,9 +1,13 @@
 <h1>Questions</h1>
+
 <ul>
   <% questions.forEach(question => { %>
+    <% var opt1 = question.option1Vote %>
+    <% var opt2 = question.option2Vote %>
+
     <li><a href="/questions/<%= question._id %>"><%= question.question %></a></li>
-    <li class="option1"><%= question.option1 %></li>
-    <li class="option2"><%= question.option2 %></li>
+    <li data-question-id="<%= question._id %>" class="option1"><%= question.option1 %>--<span class="opt1"><%= opt1.length %></span></li>
+    <li data-question-id="<%= question._id %>" class="option2"><%= question.option2 %>--<span class="opt2"><%= opt2.length %></span></li>
     <br>
   <% }); %>
 </ul>

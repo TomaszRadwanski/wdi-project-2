@@ -97,6 +97,65 @@ function questionsDelete(req, res) {
     });
 }
 
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}
+
+function questionsOption2(req, res) {
+  const questionId    = req.params.id;
+  const currentUserId = res.locals.user._id;
+
+  Question
+    .findById(questionId)
+    .exec()
+    .then(data => {
+
+      if (isInArray(currentUserId, data.option1Vote) === true) {
+        const index = data.option1Vote.indexOf(currentUserId.toString());
+        data.option1Vote.splice(index, 1);
+        data.option2Vote.push(currentUserId.toString());
+        console.log(data);
+        data.save();
+      } else if (isInArray(currentUserId, data.option2Vote) === false){
+        data.option2Vote.push(currentUserId.toString());
+        console.log(data);
+        data.save();
+      } else {
+        console.log('nopeee**************');
+      }
+      return console.log('done');
+      // if ()
+    });
+}
+function questionsOption1(req, res) {
+  const questionId = req.params.id;
+  const currentUserId = res.locals.user._id;
+  Question
+    .findById(questionId)
+    .exec()
+    .then(data => {
+      if (isInArray(currentUserId, data.option2Vote) === true) {
+        const index = data.option2Vote.indexOf(currentUserId.toString());
+        data.option2Vote.splice(index, 1);
+        data.option1Vote.push(currentUserId.toString());
+        console.log(data);
+        return data.save();
+      } else if (isInArray(currentUserId, data.option1Vote) === false ) {
+        data.option1Vote.push(currentUserId.toString());
+        console.log(data);
+        return data.save();
+      } else {
+        return res.status(500).json({ message: 'Error' });
+      }
+    })
+    .then(data => {
+      res.status(200).json({ message: 'Success' });
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Fail' });
+    })
+}
+
 
 module.exports = {
   index: questionsIndex,
@@ -105,5 +164,7 @@ module.exports = {
   create: questionsCreate,
   edit: questionsEdit,
   update: questionsUpdate,
-  delete: questionsDelete
+  delete: questionsDelete,
+  option2: questionsOption2,
+  option1: questionsOption1
 };
