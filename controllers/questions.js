@@ -1,5 +1,13 @@
 const Question = require('../models/question');
-
+// function questionsVote(req, res) {
+//   Question
+//   .find()
+//   .exec()
+//   .then(() => {
+//     console.log(res.locals.user);
+//     console.log(req.params.id);
+//   });
+// }
 function questionsIndex(req, res) {
   Question
     .find()
@@ -10,6 +18,7 @@ function questionsIndex(req, res) {
     .catch(err => {
       return res.render('error', { error: err });
     });
+  // questionsVote();
 }
 function questionsShow(req, res) {
   Question
@@ -87,6 +96,7 @@ function questionsDelete(req, res) {
       return res.render('error', { error: err });
     });
 }
+
 
 module.exports = {
   index: questionsIndex,

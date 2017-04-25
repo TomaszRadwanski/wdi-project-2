@@ -33,10 +33,10 @@ router.route('/questions/:id/edit')
 router.route('/register')
   .get(registrations.new)
   .post(registrations.create);
-// router.route('/login')
-//   .get(sessions.new)
-//   .post(sessions.create);
-// router.route('/logout')
-//   .get(sessions.delete);
+router.route('/login')
+  .get(sessions.new)
+  .post(sessions.create);
+router.route('/logout')
+  .get(sessions.delete);
 
 module.exports = router;

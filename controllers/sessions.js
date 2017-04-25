@@ -9,14 +9,15 @@ function sessionsCreate(req, res) {
     .findOne({ email: req.body.email })
     .then((user) => {
       if(!user || !user.validatePassword(req.body.password)) {
-        req.flash('danger', 'Unknown email/password combination');
-        return res.redirect('/login');
+        return res.status(401).render('sessions/new', { message: 'Unrecognised credentials' });
       }
+
       req.session.userId = user.id;
-      req.flash('info', `Welcome back, ${user.username}!`);
-      res.redirect('/');
+
+      return res.redirect('/');
     });
 }
+
 function sessionsDelete(req, res) {
   return req.session.regenerate(() => res.redirect('/'));
 }

@@ -5,6 +5,7 @@ const env        = require('../config/env');
 // Require models
 const User         = require('../models/user');
 const Question     = require('../models/question');
+// const Vote         = require('../models/question');
 
 mongoose.connect(env.db, () => {
   console.log('Connected');
@@ -37,7 +38,9 @@ Question
     {
       question: 'Would you rather:',
       option1: 'never be allowed to use the internet again',
-      option2: 'never be allowed to leave your country'
+      option2: 'never be allowed to leave your country',
+      option1Vote: [],
+      option2Vote: []
     }
   ])
   .then(questions => {
