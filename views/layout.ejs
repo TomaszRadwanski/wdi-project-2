@@ -4,7 +4,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <title>WDI Project 2</title>
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Monofett" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -23,22 +25,29 @@
         <li><a href="/">Home</a></li>
         <li><a href="/questions">Questions</a></li>
         <li><a href="/questions/new">Create a question</a></li>
+        <% if (locals.isLoggedIn) { %>
+            <li><a class="nav-link" href="/logout">Logout</a></li>
+        <% } else { %>
+            <li><a class="nav-link" href="/login">Log In</a></li>
+            <li><a class="nav-link" href="/register">Register</a></li>
+        <% } %>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="/">Home</a></li>
         <li><a href="/questions">Questions</a></li>
         <li><a href="/questions/new">Create a question</a></li>
+        <% if (locals.isLoggedIn) { %>
+            <li><a class="nav-link" href="/logout">Logout</a></li>
+        <% } else { %>
+            <li><a class="nav-link" href="/login">Log In</a></li>
+            <li><a class="nav-link" href="/register">Register</a></li>
+        <% } %>
       </ul>
     </div>
   </nav>
 
 
-  <% if (locals.isLoggedIn) { %>
-      <a class="nav-link" href="/logout">Logout</a>
-  <% } else { %>
-      <a class="nav-link" href="/login">Log In</a>
-      <a class="nav-link" href="/register">Register</a>
-  <% } %>
+
   <main>
     <% for (const type in messages) { %>
       <p><%= messages[type] %></p>

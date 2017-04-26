@@ -2,3 +2,29 @@ body {
   font-family: sans-serif;
   background: yellow;
 }
+.opt1, .opt2 {
+  border: 3px solid red;
+  padding: 2px;
+  margin: 10px;
+}
+.questionIndex {
+  background: #fff56b;
+  max-width: 960px;
+  margin: 0 auto;
+  border: red 2px dashed;
+}
+h1 {
+  font-family: 'Monofett', cursive;
+  font-size: 70px;
+  text-align: center;
+}
+.question {
+  background: green;
+  margin: 10px auto;
+  max-width: 700px;
+  text-align: center;
+  border: 2px solid black;
+  font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+  text-align: left;
+}

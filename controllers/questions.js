@@ -100,52 +100,68 @@ function questionsDelete(req, res) {
 function isInArray(value, array) {
   return array.indexOf(value) > -1;
 }
-
 function questionsOption2(req, res) {
   const questionId    = req.params.id;
   const currentUserId = res.locals.user._id;
-
+  let opt1Vote;
+  let opt2Vote;
   Question
     .findById(questionId)
     .exec()
     .then(data => {
-
-      if (isInArray(currentUserId, data.option1Vote) === true) {
-        const index = data.option1Vote.indexOf(currentUserId.toString());
-        data.option1Vote.splice(index, 1);
-        data.option2Vote.push(currentUserId.toString());
+      opt1Vote = data.option1Vote;
+      opt2Vote = data.option2Vote;
+      if (isInArray(currentUserId, opt1Vote) === true) {
+        const index = opt1Vote.indexOf(currentUserId.toString());
+        opt1Vote.splice(index, 1);
+        opt2Vote.push(currentUserId.toString());
         console.log(data);
         data.save();
-      } else if (isInArray(currentUserId, data.option2Vote) === false){
-        data.option2Vote.push(currentUserId.toString());
+        return res.json(data);
+      } else if (isInArray(currentUserId, opt2Vote) === false){
+        opt2Vote.push(currentUserId.toString());
         console.log(data);
         data.save();
+        return res.json(data);
       } else {
-        console.log('nopeee**************');
+        return res.status(202).json({ message: 'Already Scelected' });
       }
-      return console.log('done');
       // if ()
+    })
+    .then(data => {
+      res.status(200).json({ message: 'Success' });
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Fail' });
     });
 }
 function questionsOption1(req, res) {
   const questionId = req.params.id;
   const currentUserId = res.locals.user._id;
+  let opt1Vote;
+  let opt2Vote;
   Question
     .findById(questionId)
     .exec()
     .then(data => {
-      if (isInArray(currentUserId, data.option2Vote) === true) {
-        const index = data.option2Vote.indexOf(currentUserId.toString());
-        data.option2Vote.splice(index, 1);
-        data.option1Vote.push(currentUserId.toString());
+      opt1Vote = data.option1Vote;
+      opt2Vote = data.option2Vote;
+      if (isInArray(currentUserId, opt2Vote) === true) {
+        const index = opt2Vote.indexOf(currentUserId.toString());
+        opt2Vote.splice(index, 1);
+        opt1Vote.push(currentUserId.toString());
         console.log(data);
-        return data.save();
-      } else if (isInArray(currentUserId, data.option1Vote) === false ) {
-        data.option1Vote.push(currentUserId.toString());
+        data.save();
+        return res.json(data);
+
+      } else if (isInArray(currentUserId, opt1Vote) === false ) {
+        opt1Vote.push(currentUserId.toString());
         console.log(data);
-        return data.save();
+        data.save();
+        return res.json(data);
+
       } else {
-        return res.status(500).json({ message: 'Error' });
+        return res.status(202).json({ message: 'Already Scelected' });
       }
     })
     .then(data => {
@@ -153,7 +169,7 @@ function questionsOption1(req, res) {
     })
     .catch(err => {
       res.status(500).json({ message: 'Fail' });
-    })
+    });
 }
 
 

@@ -2,15 +2,23 @@
 <% if (locals.message) { %>
   <p><%= message %></p>
 <% } %>
-<form method="POST" action="/login">
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" class="form-control">
-  </div>
 
-  <button class="btn-large waves-effect waves-light green">Login</button>
-</form>
+<div class="row">
+  <form class="col s12" method="POST" action="/login">
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">email</i>
+        <input id="email icon_prefix" type="text" name="email" class="validate">
+        <label for="email icon_prefix">Email</label>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">lock</i>
+        <input id="password icon_prefix" name="password" type="password" class="validate">
+        <label for="password icon_prefix">Password</label>
+      </div>
+      <div class="input-field col s6">
+        <button class="btn-large waves-effect waves-light green">Login</button>
+      </div>
+    </div>
+  </form>
+</div>

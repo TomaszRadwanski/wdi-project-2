@@ -1,31 +1,49 @@
 console.log('hello world');
 $(init);
 //
-// let option1Vote = 0
 // let option2Vote = 0
-//
 function init() {
   // console.log($('.option1'));
   $('.option1').on('click', vote1);
   $('.option2').on('click', vote2);
   $('.button-collapse').sideNav();
+
 }
 // //
 function vote1() {
   const questionId = $(this).attr('data-question-id');
   $.post(`http://localhost:8000/questions/${questionId}/option1`)
   .done(data => {
-    console.log(data);
+    const votesForOpt2 = $(this).next().next().next()[0];
+    const votesForOpt1 = $(this).next()[0];
+    $(votesForOpt1).html(`Votes: ${data.option1Vote.length}`);
+    $(votesForOpt2).html(`Votes: ${data.option2Vote.length}`);
+    // console.log(votesForOpt1);
+    // console.log(votesForOpt2);
+    // console.log(data);
+    // console.log(data.option1Vote.length);
   })
   .fail(err => {
     console.log(err);
   });
-  // $('.opt1').html(-1);
+  // console.log(option1Vote);
 }
 function vote2() {
   const questionId = $(this).attr('data-question-id');
-  $.post(`http://localhost:8000/questions/${questionId}/option2`);
-
-  // find question by id
+  $.post(`http://localhost:8000/questions/${questionId}/option2`)
+  .done(data => {
+    const votesForOpt1 = $(this).prev()[0];
+    const votesForOpt2 = $(this).next()[0];
+    $(votesForOpt1).html(`Votes: ${data.option1Vote.length}`);
+    $(votesForOpt2).html(`Votes: ${data.option2Vote.length}`);
+    // console.log(votesForOpt1);
+    // console.log(votesForOpt2);
+    // console.log(data);
+    // console.log(data.option2Vote.length);
+  })
+  .fail(err => {
+    console.log(err);
+  });
+  // console.log(option2Vote);
 }
 // res.locals.user
