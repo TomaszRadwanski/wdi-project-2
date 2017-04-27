@@ -8,6 +8,8 @@ function init() {
   $('.option2').on('click', vote2);
   $('.button-collapse').sideNav();
   $('button').hover(hoverOn, hoverOff);
+
+
 // -----------------//   randomBackground();
 }
 // // //
@@ -17,6 +19,7 @@ function init() {
 //     $('.question').css('background-color', 'red');
 // ------------------//   });
 // }
+
 function hoverOn() {
   $(this).addClass('pulse');
 }

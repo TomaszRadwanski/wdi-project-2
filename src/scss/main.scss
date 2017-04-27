@@ -30,6 +30,12 @@ h1 {
   border-bottom: 0.5px solid $textColor;
 
 }
+.redHalf {
+  color: red;
+}
+.blueHalf {
+  color: blue;
+}
 .question {
   background: $backgroundColor;
   margin: 10px auto;
@@ -43,9 +49,8 @@ h1 {
   color: $smallerTextColor !important;
   a {
     text-decoration: none;
-    color: $smallerTextColor !important;
+    color: black;
     font-size: 50px;
-
   }
   li {
     margin: 50px auto;
@@ -57,23 +62,32 @@ h1 {
     float: left;
     width: 50%;
     height: 70%;
-    border-right: 1px solid black;
+    border-right: 1px solid #CEC9C9;
     color: red;
   }
   .section2{
     float: right;
     width: 50%;
     height: 70%;
-    border-right: 1px solid black;
+    border-right: 1px solid #CEC9C9;
     color: blue;
   }
   .opt1, .opt2 {
     margin: 0 auto;
     font-size: 15px;
+    border: none;
   }
-  .option1, .option2 {
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
+  .option1:hover {
+    background-color: red;
+    color: white;
+  }
+  .option2:hover {
+    background-color: blue;
+    color: white;
+  }
+  li {
+    border-top: 1px solid #CEC9C9;
+    border-bottom: 1px solid #CEC9C9;
     width: 90%;
   }
 }
@@ -83,32 +97,38 @@ h1 {
   width: 100%;
   height: 480px;
   text-align: center;
-  border-bottom: 0.5px solid $textColor;
   font-family: 'Baloo', cursive;
   font-size: 20px;
   text-align: left;
   color: $smallerTextColor !important;
-  a {
-    text-decoration: none;
-    color: $smallerTextColor !important;
-    font-size: 50px;
-
-  }
   li {
     margin: 50px auto;
     padding-top: 10px;
     text-align: center;
     font-size: 30px;
     list-style: none;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    width: 90%;
   }
   .opt1, .opt2 {
     margin: 0 auto;
     font-size: 15px;
+    border: none;
   }
-  .option1, .option2 {
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
-    width: 90%;
+  .opt1, .option1 {
+    color: red;
+  }
+  .opt2, .option2 {
+    color: blue;
+  }
+  .option1:hover {
+    background-color: red;
+    color: white;
+  }
+  .option2:hover {
+    background-color: blue;
+    color: white;
   }
 }
 .edit {
@@ -118,4 +138,11 @@ h1 {
 .delete {
   float: right;
   margin: 5px 10px 15px 0;
+}
+
+.backRed {
+  background-color: red;
+}
+/backBlue {
+  background-color: blue;
 }

@@ -1,5 +1,5 @@
 <div class="questionIndex">
-  <h1 class="qTitle">Questions</h1>
+  <h1 class="qTitle"><span class="redHalf">Ques</span><span class="blueHalf">tions</span></h1>
 
   <ul>
     <% questions.forEach(question => { %>
@@ -13,9 +13,8 @@
           <li data-question-id="<%= question._id %>" class="option1"><%= question.option1 %></li>
           <li class="opt1">Votes: <%= opt1.length %> (<%= opt1Percent %>%)</li>
 
-
-        <li data-question-id="<%= question._id %>" class="option2"><%= question.option2 %></li>
-        <li class="opt2">Votes: <%= opt2.length %> (<%= opt2Percent %>%)</li>
+          <li data-question-id="<%= question._id %>" class="option2"><%= question.option2 %></li>
+          <li class="opt2">Votes: <%= opt2.length %> (<%= opt2Percent %>%)</li>
 
       <br>
       </div>
