@@ -27,8 +27,6 @@ h1 {
   font-size: 70px;
   text-align: center;
   color: $textColor;
-  border-bottom: 0.5px solid $textColor;
-
 }
 .redHalf {
   color: red;
@@ -40,9 +38,8 @@ h1 {
   background: $backgroundColor;
   margin: 10px auto;
   width: 100%;
-  height: 500px;
+  // height: 100vh;
   text-align: center;
-  border-bottom: 0.5px solid $textColor;
   font-family: 'Baloo', cursive;
   font-size: 20px;
   text-align: left;
@@ -52,7 +49,7 @@ h1 {
     color: black;
     font-size: 50px;
   }
-  li {
+  p{
     margin: 50px auto;
     padding-top: 10px;
     text-align: center;
@@ -62,14 +59,12 @@ h1 {
     float: left;
     width: 50%;
     height: 70%;
-    border-right: 1px solid #CEC9C9;
     color: red;
   }
   .section2{
     float: right;
     width: 50%;
     height: 70%;
-    border-right: 1px solid #CEC9C9;
     color: blue;
   }
   .opt1, .opt2 {
@@ -85,9 +80,7 @@ h1 {
     background-color: blue;
     color: white;
   }
-  li {
-    border-top: 1px solid #CEC9C9;
-    border-bottom: 1px solid #CEC9C9;
+  p{
     width: 90%;
   }
 }
@@ -101,14 +94,12 @@ h1 {
   font-size: 20px;
   text-align: left;
   color: $smallerTextColor !important;
-  li {
+  p{
     margin: 50px auto;
     padding-top: 10px;
     text-align: center;
     font-size: 30px;
     list-style: none;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
     width: 90%;
   }
   .opt1, .opt2 {
@@ -142,13 +133,13 @@ h1 {
 
 .backRed {
   background-color: rgba(244, 0, 0, 0.59);
-  li {
+  p{
     border-color: black;
   }
 }
 .backBlue {
   background-color: rgba(0, 0, 244, 0.59);
-  li {
+  p{
     border-color: black;
   }
 }

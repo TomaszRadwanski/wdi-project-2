@@ -9,6 +9,12 @@ function init() {
   $('.button-collapse').sideNav();
   $('button').hover(hoverOn, hoverOff);
 
+  if ($('#fullpage').length > 0) {
+    $('#fullpage').fullpage({
+      sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
+    });
+  }
+
 
 // -----------------//   randomBackground();
 }
@@ -35,7 +41,7 @@ function vote1() {
     const votesForOpt1 = $(this).next()[0];
     const opt1percent  = parseInt((data.option1Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);
     const opt2percent  = parseInt((data.option2Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);
-    
+
     $(votesForOpt1).html(`Votes: ${data.option1Vote.length} (${opt1percent}%)`);
     $(parentDiv).html(`Votes: ${data.option2Vote.length} (${opt2percent}%)`);
     // ---------------------------------------------------------
