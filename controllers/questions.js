@@ -115,12 +115,10 @@ function questionsOption2(req, res) {
         const index = opt1Vote.indexOf(currentUserId.toString());
         opt1Vote.splice(index, 1);
         opt2Vote.push(currentUserId.toString());
-        console.log(data);
         data.save();
         return res.json(data);
       } else if (isInArray(currentUserId, opt2Vote) === false){
         opt2Vote.push(currentUserId.toString());
-        console.log(data);
         data.save();
         return res.json(data);
       } else {
@@ -150,13 +148,11 @@ function questionsOption1(req, res) {
         const index = opt2Vote.indexOf(currentUserId.toString());
         opt2Vote.splice(index, 1);
         opt1Vote.push(currentUserId.toString());
-        console.log(data);
         data.save();
         return res.json(data);
 
       } else if (isInArray(currentUserId, opt1Vote) === false ) {
         opt1Vote.push(currentUserId.toString());
-        console.log(data);
         data.save();
         return res.json(data);
 

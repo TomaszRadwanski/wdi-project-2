@@ -141,8 +141,14 @@ h1 {
 }
 
 .backRed {
-  background-color: red;
+  background-color: rgba(244, 0, 0, 0.59);
+  li {
+    border-color: black;
+  }
 }
-/backBlue {
-  background-color: blue;
+.backBlue {
+  background-color: rgba(0, 0, 244, 0.59);
+  li {
+    border-color: black;
+  }
 }
