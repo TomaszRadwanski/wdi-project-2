@@ -1,11 +1,17 @@
-<h1><%= question.question %></h1>
-<h4> - <%= question.option1 %></h3>
-<h4> - <%= question.option2 %></h3>
+<% var opt1 = question.option1Vote %>
+<% var opt2 = question.option2Vote %>
 
+<h1><%= question.question %></h1>
+<div class="questionShow">
+  <li data-question-id="<%= question._id %>" class="option1"><%= question.option1 %></li>
+  <li class="opt1">Votes: <%= opt1.length %></li>
+  <li data-question-id="<%= question._id %>" class="option2"><%= question.option2 %></li>
+  <li class="opt2">Votes: <%= opt2.length %></li>
+</div>
 <form method="get" action="/questions/<%= question._id %>/edit">
-    <button type="submit" class="btn-large waves-effect waves-light deep-purple lighten-2">Edit</button>
+  <button type="submit" class="btn-large waves-effect waves-light blue edit">Edit</button>
 </form>
 <form method="post" action="/questions/<%= question.id %>">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit" class="btn-large waves-effect waves-light red">Delete</button>
+  <button type="submit" class="btn-large waves-effect waves-light red delete">Delete</button>
 </form>
