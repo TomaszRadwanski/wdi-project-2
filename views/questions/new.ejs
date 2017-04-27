@@ -1,14 +1,22 @@
 <h1>Add Question</h1>
-
-<form method="post" action="/questions">
-  <label for="question">Question:</label>
-  <input type="text" id="question" name="question">
-<br>
-  <label for="option1">Option 1:</label>
-  <input type="text" id="option1" name="option1">
-<br>
-  <label for="option2">Option 2:</label>
-  <input type="text" id="option2" name="option2">
-<br>
-  <input type="submit" value="Create" class="btn-large waves-effect waves-light blue">
-</form>
+<div class="row">
+  <form class="col s12" method="POST" action="/questions">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="question" type="text" name="question" class="validate active" value="Would you rather:">
+        <label for="question">Question</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="option1" name="option1" type="text" class="validate active" value="1.">
+        <label for="option1">Password</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="option2" name="option2" type="text" class="validate active" value="2.">
+        <label for="option2">Password</label>
+      </div>
+      <div class="input-field col s12">
+        <button class="btn-large waves-effect waves-light blue">Create</button>
+      </div>
+    </div>
+  </form>
+</div>

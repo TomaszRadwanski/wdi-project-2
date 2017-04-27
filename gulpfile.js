@@ -41,7 +41,8 @@ gulp.task('serve', ['js', 'sass'], () => {
     port: 8000,
     files: ['public/**/*.*'],
     reloadDelay: 500,
-    open: false
+    notify: false,
+    open: false // stop browsersync from opening and notifying
   });
 
   return nodemon({ script: 'index.js'})

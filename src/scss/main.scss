@@ -1,30 +1,78 @@
+$backgroundColor: white;
+$textColor: black;
+$smallerTextColor: black;
 body {
   font-family: sans-serif;
-  background: yellow;
+  background: $backgroundColor;
 }
-.opt1, .opt2 {
-  border: 3px solid red;
-  padding: 2px;
-  margin: 10px;
+nav {
+  background: $backgroundColor !important;
+  font-family: 'Bungee', cursive !important;
+  a {
+    color: $textColor !important;
+  }
 }
+label {
+  color: $textColor !important;
+}
+
 .questionIndex {
-  background: #fff56b;
-  max-width: 960px;
+  background: $backgroundColor;
+  width: 100%;
   margin: 0 auto;
-  border: red 2px dashed;
+  padding: 10px;
 }
 h1 {
-  font-family: 'Monofett', cursive;
+  font-family: 'Bungee', cursive;
   font-size: 70px;
   text-align: center;
+  color: $textColor;
+  border-bottom: 0.5px solid $textColor;
+
 }
 .question {
-  background: green;
+  background: $backgroundColor;
   margin: 10px auto;
-  max-width: 700px;
+  width: 100%;
+  height: 500px;
   text-align: center;
-  border: 2px solid black;
-  font-family: 'Comfortaa', cursive;
+  border-bottom: 0.5px solid $textColor;
+  font-family: 'Baloo', cursive;
   font-size: 20px;
   text-align: left;
+  color: $smallerTextColor !important;
+  a {
+    text-decoration: none;
+    color: $smallerTextColor !important;
+    font-size: 50px;
+
+  }
+  li {
+    margin: 50px auto;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 30px;
+  }
+  .section1{
+    float: left;
+    width: 50%;
+    height: 70%;
+    border-right: 1px solid black;
+  }
+  .section2{
+    float: right;
+    width: 50%;
+    height: 70%;
+    border-right: 1px solid black;
+
+  }
+  .opt1, .opt2 {
+    margin: 0 auto;
+    font-size: 15px;
+  }
+  .option1, .option2 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 90%;
+  }
 }
