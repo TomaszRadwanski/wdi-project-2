@@ -30,17 +30,18 @@ function vote1() {
   .done(data => {
     const votesForOpt2 = $(this).next().next().next()[0];
     const votesForOpt1 = $(this).next()[0];
-    $(votesForOpt1).html(`Votes: ${data.option1Vote.length}`);
-    $(votesForOpt2).html(`Votes: ${data.option2Vote.length}`);
-    console.log(votesForOpt1);
-    console.log(votesForOpt2);
+    const opt1percent  = parseInt((data.option1Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);
+    const opt2percent  = parseInt((data.option2Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);
+    $(votesForOpt1).html(`Votes: ${data.option1Vote.length} (${opt1percent}%)`);
+    $(votesForOpt2).html(`Votes: ${data.option2Vote.length} (${opt2percent}%)`);
+    // console.log(votesForOpt1);
+    // console.log(votesForOpt2);
     // console.log(data);
     // console.log(data.option1Vote.length);
   })
   .fail(err => {
     console.log(err);
   });
-  // console.log(option1Vote);
 }
 function vote2() {
   const questionId = $(this).attr('data-question-id');
@@ -48,11 +49,13 @@ function vote2() {
   .done(data => {
     const votesForOpt1 = $(this).prev()[0];
     const votesForOpt2 = $(this).next()[0];
-    $(votesForOpt1).html(`Votes: ${data.option1Vote.length}`);
-    $(votesForOpt2).html(`Votes: ${data.option2Vote.length}`);
-    console.log(votesForOpt1);
-    console.log(votesForOpt2);
-    // console.log(data);
+    const opt1percent  = parseInt((data.option1Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);
+    const opt2percent  = parseInt((data.option2Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);
+    $(votesForOpt1).html(`Votes: ${data.option1Vote.length} (${opt1percent}%)`);
+    $(votesForOpt2).html(`Votes: ${data.option2Vote.length} (${opt2percent}%)`);
+    // console.log(votesForOpt1);
+    // console.log(votesForOpt2);
+    // // console.log(data);
     // console.log(data.option2Vote.length);
   })
   .fail(err => {
