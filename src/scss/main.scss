@@ -54,6 +54,9 @@ h1 {
     padding-top: 10px;
     text-align: center;
     font-size: 30px;
+    .questionTitle {
+      margin-top: 0;
+    }
   }
   .section1{
     float: left;
@@ -142,4 +145,16 @@ h1 {
   p{
     border-color: black;
   }
+}
+
+
+.active {
+  background-color: white !important;
+}
+
+.fp-controlArrow.fp-next {
+  border-color: transparent transparent transparent #000;
+}
+.fp-controlArrow.fp-prev {
+  border-color: transparent #000 transparent transparent;
 }

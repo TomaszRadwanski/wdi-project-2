@@ -11,20 +11,14 @@ function init() {
 
   if ($('#fullpage').length > 0) {
     $('#fullpage').fullpage({
-      sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
+      sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000']
     });
+    $('.fp-tableCell').css('vertical-align', 'top');
   }
 
 
-// -----------------//   randomBackground();
 }
-// // //
-// function randomBackground() {
-//   // const randomColor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-//   $('.question').forEach(() => {
-//     $('.question').css('background-color', 'red');
-// ------------------//   });
-// }
+
 
 function hoverOn() {
   $(this).addClass('pulse');
@@ -37,7 +31,7 @@ function vote1() {
   const questionId = $(this).attr('data-question-id');
   $.post(`http://localhost:8000/questions/${questionId}/option1`)
   .done(data => {
-    const parentDiv = $(this).parent().parent().find('li.opt2')[0];
+    const parentDiv = $(this).parent().parent().find('p.opt2')[0];
     const votesForOpt1 = $(this).next()[0];
     const opt1percent  = parseInt((data.option1Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);
     const opt2percent  = parseInt((data.option2Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);
@@ -62,7 +56,7 @@ function vote2() {
   const questionId = $(this).attr('data-question-id');
   $.post(`http://localhost:8000/questions/${questionId}/option2`)
   .done(data => {
-    const parentDiv = $(this).parent().parent().find('li.opt1')[0];
+    const parentDiv = $(this).parent().parent().find('p.opt1')[0];
     const votesForOpt2 = $(this).next()[0];
     const opt1percent  = parseInt((data.option1Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);
     const opt2percent  = parseInt((data.option2Vote.length/(data.option2Vote.length+data.option1Vote.length))*100);

@@ -7,7 +7,7 @@
         <% var opt1Percent = parseInt((opt1.length/(opt1.length+opt2.length))*100); %>
         <% var opt2Percent = parseInt((opt2.length/(opt1.length+opt2.length))*100); %>
         <div class="question">
-          <p><a href="/questions/<%= question._id %>"><%= question.question %></a></p>
+          <p class="questionTitle"><a href="/questions/<%= question._id %>"><%= question.question %></a></p>
           <div class="section1">
             <p data-question-id="<%= question._id %>" class="option1"><%= question.option1 %></p>
             <p class="opt1">Votes: <%= opt1.length %> (<%= opt1Percent %>%)</p>
